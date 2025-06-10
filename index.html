@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ООО "Инженер" - Техническое обслуживание</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body.dark-theme {
+      background-color: #121212;
+      color: #eee;
+    }
+
+    body.dark-theme header,
+    body.dark-theme .navbar,
+    body.dark-theme footer {
+      background-color: #1e1e1e;
+    }
+
+    body.dark-theme .intro,
+    body.dark-theme .contact-info {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: #eee;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      background-color: transparent;
+      border: 2px solid white;
+      border-radius: 5px;
+      color: white;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .theme-toggle:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-link">Главная</a>
+      <a href="contact.html" class="nav-link">Контакты</a>
+      <a href="uslugi.html" class="nav-link">Услуги</a>
+      <button class="theme-toggle" onclick="toggleTheme()">🌙 Тема</button>
+    </div>
+  </nav>
+
+  <!-- остальная часть как есть -->
+  <header id="home">
+    <div class="container">
+      <h1>ООО "Инженер"</h1>
+      <p>Техническое обслуживание инженерного оборудования и ремонт жилых зданий</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="container">
+        <h2>Мы обеспечиваем надежность и долговечность ваших объектов</h2>
+        <p>Наши специалисты обеспечивают техническое обслуживание и капитальный ремонт с гарантией качества. Мы работаем с каждым клиентом индивидуально, предлагая высококачественные решения для вашего бизнеса.</p>
+        <a href="contact.html" class="cta-button">Связаться с нами</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 ООО "Инженер". Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-theme');
+    }
+  </script>
+</body>
+</html>
