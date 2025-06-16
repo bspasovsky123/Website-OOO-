@@ -1,197 +1,210 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Контакты - ООО "Инженер"</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Иконки -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-image: url('image2.jpg');
-      background-size: cover;
-      background-position: center center;
-      background-attachment: fixed;
-      height: 100vh;
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Контакты - ООО "Инженер"</title>
+<link href="style.css" rel="stylesheet"/>
+<!-- Добавление иконок -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+<style>
+        /* Общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('image2.jpg');  /* Вставляем изображение фоном */
+            background-size: cover;  /* Растягиваем фон по всему экрану */
+            background-position: center center;  /* Центрируем фон */
+            background-attachment: fixed;  /* Закрепляем фон, чтобы он не прокручивался */
+            height: 100vh;  /* Устанавливаем высоту для полного охвата экрана */
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.6);  /* Полупрозрачный фон для навигационной панели */
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar .container a {
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar .container a:hover {
+            background-color: #575757;
+        }
+
+        main {
+            padding: 40px 20px;
+        }
+
+        /* Контейнер для информации */
+        .contact-info {
+            background-color: rgba(255, 255, 255, 0.9);  /* Белый фон с прозрачностью */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .contact-details {
+            margin-top: 20px;
+        }
+
+        .contact-details h4 {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .contact-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .contact-details li {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .contact-details li a {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+
+        .contact-details li a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-hours {
+            margin-top: 20px;
+        }
+
+        .contact-hours ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .contact-hours li {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        /* Иконки */
+        .contact-details i {
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+<script>
+    function toggleDarkMode() {
+        const body = document.body;
+        body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
     }
 
-    .navbar {
-      background-color: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      padding: 10px 0;
-      text-align: center;
+    window.addEventListener('DOMContentLoaded', () => {
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+    });
+    </script>
+<script>
+    function toggleDarkMode() {
+        const body = document.body;
+        body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
     }
 
-    .navbar .container a {
-      color: #fff;
-      padding: 10px 20px;
-      text-decoration: none;
-      font-size: 18px;
+    function toggleDeviceMode() {
+        const body = document.body;
+        if (body.classList.contains("mobile-mode")) {
+            body.classList.remove("mobile-mode");
+            body.classList.add("desktop-mode");
+            localStorage.setItem("view", "desktop");
+        } else {
+            body.classList.add("mobile-mode");
+            body.classList.remove("desktop-mode");
+            localStorage.setItem("view", "mobile");
+        }
     }
 
-    .navbar .container a:hover {
-      background-color: #575757;
-    }
-
-    main {
-      padding: 40px 20px;
-    }
-
-    .contact-info {
-      background-color: rgba(255, 255, 255, 0.9);
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .contact-info h3 {
-      font-size: 24px;
-      color: #333;
-    }
-
-    .contact-details,
-    .contact-hours {
-      margin-top: 20px;
-    }
-
-    .contact-details h4,
-    .contact-hours h4 {
-      font-size: 20px;
-      color: #333;
-    }
-
-    .contact-details ul,
-    .contact-hours ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .contact-details li,
-    .contact-hours li {
-      margin-bottom: 15px;
-      font-size: 18px;
-      color: #555;
-    }
-
-    .contact-details li a {
-      text-decoration: none;
-      color: #4CAF50;
-    }
-
-    .contact-details li a:hover {
-      text-decoration: underline;
-    }
-
-    .contact-details i {
-      margin-right: 10px;
-      color: #4CAF50;
-    }
-
-    .contact-form {
-      margin-top: 30px;
-    }
-
-    .contact-form form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      margin-bottom: 15px;
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-
-    .contact-form button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 12px;
-      font-size: 16px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .contact-form button:hover {
-      background-color: #45a049;
-    }
-
-    footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 20px 0;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-    }
-
-    footer p {
-      margin: 0;
-    }
-  </style>
+    window.addEventListener('DOMContentLoaded', () => {
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+        if (localStorage.getItem("view") === "mobile") {
+            document.body.classList.add("mobile-mode");
+        } else if (localStorage.getItem("view") === "desktop") {
+            document.body.classList.add("desktop-mode");
+        }
+    });
+    </script>
 </head>
 <body>
-  <!-- Навигационная панель -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="nav-link">Главная</a>
-      <a href="contact.html" class="nav-link active">Контакты</a>
-      <a href="uslugi.html" class="nav-link">Услуги</a>
-    </div>
-  </nav>
+<button onclick="toggleDeviceMode()" style="position: fixed; top: 50px; right: 10px; z-index: 1001;">📱 Режим</button>
+<button onclick="toggleDarkMode()" style="position: fixed; top: 10px; right: 10px; z-index: 1001;">🌓 Тема</button>
+<!-- Навигационная панель -->
+<nav class="navbar">
+<div class="container">
 
-  <main>
-    <section class="contact-info" id="contact">
-      <div class="container">
-        <h3>Контакты</h3>
-        <p>Мы всегда рады помочь вам и ответить на ваши вопросы. Свяжитесь с нами любым удобным способом:</p>
-        
-        <div class="contact-details">
-          <h4>Наши контактные данные:</h4>
-          <ul>
-            <li><i class="fas fa-envelope"></i><strong>Электронная почта:</strong> <a href="mailto:r-v-s@list.ru">r-v-s@list.ru</a></li>
-            <li><i class="fas fa-phone-alt"></i><strong>Номер телефона:</strong> <a href="tel:79672094016">+7 967 209-40-16</a></li>
-            <li><i class="fab fa-whatsapp"></i><strong>WhatsApp:</strong> <a href="https://wa.me/79672094016">Написать в WhatsApp</a></li>
-            <li><strong>Адрес:</strong> 125363, г. Москва, вн.тер.г. муниципальный округ Южное Тушино, ул. Сходненская, д. 25, помещ. 7/1.</li> 
-          </ul>
-        </div>
 
-        <div class="contact-hours">
-          <h4>Время работы:</h4>
-          <ul>
-            <li><strong>Понедельник - Пятница:</strong> 09:00 - 18:00</li>
-            <li><strong>Суббота:</strong> 10:00 - 15:00</li>
-            <li><strong>Воскресенье:</strong> Выходной</li>
-          </ul>
-        </div>
-
-        <!-- Форма обратной связи -->
-        <div class="contact-form">
-          <h4>Форма обратной связи:</h4>
-          <form action="/send-email" method="POST">
-            <input type="text" name="name" placeholder="Ваше имя" required>
-            <input type="email" name="email" placeholder="Ваш email" required>
-            <textarea name="message" rows="5" placeholder="Ваше сообщение" required></textarea>
-            <button type="submit">Отправить сообщение</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 ООО "Инженер". Все права защищены.</p>
-  </footer>
+<a class="nav-link" href="index.html">Главная</a><a class="nav-link" href="uslugi.html">Услуги</a><a class="nav-link" href="contact.html">Контакты</a></div>
+</nav>
+<main>
+<section class="contact-info" id="contact">
+<div class="container">
+<h3>Контакты</h3>
+<p>Мы всегда рады помочь вам и ответить на ваши вопросы. Свяжитесь с нами любым удобным способом:</p>
+<div class="contact-details">
+<h4>Наши контактные данные:</h4>
+<ul>
+<li><i class="fas fa-envelope"></i><strong>Электронная почта:</strong> <a href="mailto:r-v-s@list.ru">r-v-s@list.ru</a></li>
+<li><i class="fas fa-phone-alt"></i><strong>Номер телефона:</strong> <a href="tel:79672094016">+7 967 209-40-16</a></li>
+<li><i class="fab fa-whatsapp"></i><strong>WhatsApp:</strong> <a href="https://wa.me/79672094016">Написать в WhatsApp</a></li>
+<li><strong>Адрес:</strong> 125363, г. Москва, вн.тер.г. муниципальный округ Южное Тушино, ул. Сходненская, д. 25, помещ. 7/1.</li>
+</ul>
+</div>
+<div class="contact-hours">
+<h4>Время работы:</h4>
+<ul>
+<li><strong>Понедельник - Пятница:</strong> 09:00 - 18:00</li>
+<li><strong>Суббота:</strong> 10:00 - 15:00</li>
+<li><strong>Воскресенье:</strong> Выходной</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<!-- Черная полоска с текстом "ООО Инженер" -->
+<footer>
+<p>© 2025 ООО "Инженер". Все права защищены.</p>
+</footer>
 </body>
 </html>
