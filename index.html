@@ -1,84 +1,177 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ООО "Инженер" - Техническое обслуживание</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body.dark-theme {
-      background-color: #121212;
-      color: #eee;
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ООО "Инженер" - Техническое обслуживание</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+         /*Навигационная панель*/
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar .container a {
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar .container a:hover {
+            background-color: #575757;
+        }
+
+        /* Главная секция */
+        header#home {
+            background-color: #333;
+            padding: 20px 20px;  
+            margin-top: 0;  
+            text-align: center;
+            color: white;
+        }
+
+        header#home h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        header#home p {
+            font-size: 28px;
+            margin-top: 10px; 
+            font-weight: normal;
+        }
+
+        main {
+            padding: 40px 20px;
+        }
+
+        .intro h2 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .intro p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+<script>
+    function toggleDarkMode() {
+        const body = document.body;
+        body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
     }
 
-    body.dark-theme header,
-    body.dark-theme .navbar,
-    body.dark-theme footer {
-      background-color: #1e1e1e;
+    window.addEventListener('DOMContentLoaded', () => {
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+    });
+    </script>
+<script>
+    function toggleDarkMode() {
+        const body = document.body;
+        body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
     }
 
-    body.dark-theme .intro,
-    body.dark-theme .contact-info {
-      background-color: rgba(255, 255, 255, 0.05);
-      color: #eee;
+    function toggleDeviceMode() {
+        const body = document.body;
+        if (body.classList.contains("mobile-mode")) {
+            body.classList.remove("mobile-mode");
+            body.classList.add("desktop-mode");
+            localStorage.setItem("view", "desktop");
+        } else {
+            body.classList.add("mobile-mode");
+            body.classList.remove("desktop-mode");
+            localStorage.setItem("view", "mobile");
+        }
     }
 
-    .theme-toggle {
-      position: absolute;
-      right: 20px;
-      top: 10px;
-      background-color: transparent;
-      border: 2px solid white;
-      border-radius: 5px;
-      color: white;
-      padding: 5px 10px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .theme-toggle:hover {
-      background-color: #555;
-    }
-  </style>
+    window.addEventListener('DOMContentLoaded', () => {
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+        if (localStorage.getItem("view") === "mobile") {
+            document.body.classList.add("mobile-mode");
+        } else if (localStorage.getItem("view") === "desktop") {
+            document.body.classList.add("desktop-mode");
+        }
+    });
+    </script>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="nav-link">Главная</a>
-      <a href="contact.html" class="nav-link">Контакты</a>
-      <a href="uslugi.html" class="nav-link">Услуги</a>
-      <button class="theme-toggle" onclick="toggleTheme()">🌙 Тема</button>
-    </div>
-  </nav>
+<button onclick="toggleDeviceMode()" style="position: fixed; top: 50px; right: 10px; z-index: 1001;">📱 Режим</button>
+<button onclick="toggleDarkMode()" style="position: fixed; top: 10px; right: 10px; z-index: 1001;">🌓 Тема</button>
+<!-- Навигационная панель -->
+<nav class="navbar">
+<div class="container">
 
-  <!-- остальная часть как есть -->
-  <header id="home">
-    <div class="container">
-      <h1>ООО "Инженер"</h1>
-      <p>Техническое обслуживание инженерного оборудования и ремонт жилых зданий</p>
-    </div>
-  </header>
 
-  <main>
-    <section class="intro">
-      <div class="container">
-        <h2>Мы обеспечиваем надежность и долговечность ваших объектов</h2>
-        <p>Наши специалисты обеспечивают техническое обслуживание и капитальный ремонт с гарантией качества. Мы работаем с каждым клиентом индивидуально, предлагая высококачественные решения для вашего бизнеса.</p>
-        <a href="contact.html" class="cta-button">Связаться с нами</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 ООО "Инженер". Все права защищены.</p>
-    </div>
-  </footer>
-
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle('dark-theme');
-    }
-  </script>
+<a class="nav-link" href="index.html">Главная</a><a class="nav-link" href="uslugi.html">Услуги</a><a class="nav-link" href="contact.html">Контакты</a></div>
+</nav>
+<!-- Главная секция -->
+<header id="home">
+<div class="container">
+<h1>ООО "Инженер"</h1>
+<p>Техническое обслуживание инженерного оборудования и ремонт жилых зданий</p>
+</div>
+</header>
+<main>
+<section class="intro">
+<div class="container">
+<h2>Мы обеспечиваем надежность и долговечность ваших объектов</h2>
+<p>Наши специалисты обеспечивают техническое обслуживание и капитальный ремонт с гарантией качества. Мы работаем с каждым клиентом индивидуально, предлагая высококачественные решения для вашего бизнеса.</p>
+<a class="cta-button" href="contact.html">Связаться с нами</a>
+</div>
+</section>
+</main>
+<footer>
+<div class="container">
+<p>© 2025 ООО "Инженер". Все права защищены.</p>
+</div>
+</footer>
 </body>
 </html>
