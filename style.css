@@ -189,6 +189,7 @@ footer {
     color: white;
     padding: 20px 0;
     text-align: center;
+    position: relative;
 }
 
 /* Анимации */
@@ -210,4 +211,72 @@ footer {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+/* Адаптивность под планшеты и телефоны */
+@media (max-width: 768px) {
+  .navbar .container {
+    flex-direction: column;
+  }
+
+  .nav-link {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  header p {
+    font-size: 18px;
+  }
+
+  .intro h2 {
+    font-size: 24px;
+  }
+
+  .intro p {
+    font-size: 16px;
+  }
+
+  .cta-button {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
+  .contact-info,
+  .contact-form form {
+    padding: 10px;
+  }
+}    
+
+
+.dark-mode {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+.dark-mode a {
+    color: #80cbc4 !important;
+}
+
+.dark-mode .navbar, .dark-mode footer {
+    background-color: #1f1f1f !important;
+}
+
+.dark-mode .intro, .dark-mode .contact-form, .dark-mode .contact-info, .dark-mode .service-introduction {
+    background-color: #1e1e1e !important;
+    color: #ccc !important;
+}
+
+
+
+/* Переключение между режимами */
+.mobile-mode {
+    zoom: 0.5;
+}
+
+.desktop-mode {
+    zoom: 1;
 }
