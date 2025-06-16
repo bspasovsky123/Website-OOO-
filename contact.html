@@ -173,8 +173,6 @@
 <!-- Навигационная панель -->
 <nav class="navbar">
 <div class="container">
-
-
 <a class="nav-link" href="index.html">Главная</a><a class="nav-link" href="uslugi.html">Услуги</a><a class="nav-link" href="contact.html">Контакты</a></div>
 </nav>
 <main>
@@ -201,10 +199,72 @@
 </div>
 </div>
 </section>
+
+<section class="contact-form-section">
+<div class="form-container">
+<h2>Оставить заявку</h2>
+<form id="contact-form">
+<input name="name" placeholder="Ваше имя" required="" type="text"/>
+<input name="email" placeholder="Ваш Email" required="" type="email"/>
+<textarea name="message" placeholder="Ваше сообщение" required=""></textarea>
+<button type="submit">Отправить</button>
+<p id="form-response"></p>
+</form>
+</div>
+</section>
+<style>
+  .contact-form-section {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+  }
+
+  #contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+
+  #contact-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #contact-form button:hover {
+    background-color: #45a049;
+  }
+
+  #form-response {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+</style>
 </main>
 <!-- Черная полоска с текстом "ООО Инженер" -->
 <footer>
 <p>© 2025 ООО "Инженер". Все права защищены.</p>
 </footer>
+<h2>Оставить заявку</h2>
+
 </body>
 </html>
