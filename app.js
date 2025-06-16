@@ -1,10 +1,9 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
-const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 3000; // Используем порт из переменной окружения
+const port = 3000;
 
 // Middleware для обработки данных формы
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -43,7 +42,7 @@ app.post('/send-email', (req, res) => {
 });
 
 // Статический сервер для вашего сайта
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 // Запуск сервера
 app.listen(port, () => {
